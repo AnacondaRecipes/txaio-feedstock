@@ -13,14 +13,15 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
+    - wheel
   run:
-    - python >=3.7
+    - python >=3.8
 
 test:
   imports:
@@ -37,8 +38,8 @@ about:
   license_file: LICENSE
   summary: Compatibility API between asyncio/Twisted/Trollius
   dev_url: https://github.com/crossbario/txaio
-  doc_url: http://txaio.readthedocs.io/
+  doc_url: https://txaio.readthedocs.io/
 
 extra:
   recipe-maintainers:
-    - synapticarbors
+    - ianaobi
